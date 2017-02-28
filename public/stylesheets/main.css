@@ -1,0 +1,38 @@
+.div-center {
+    margin: 0 auto;
+    width: 330px;
+    height: 175px;
+}
+
+
+.info-box-icon-os {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 2px;
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    font-size: 85px;
+    line-height: 140px;
+    background: rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+}
+
+.info-box-icon-os:hover{
+    transition:font-size 0.3s;
+    font-size: 95px;
+}
+
+.colom-color {
+    background-color: #fff;
+}
+
+.box.box-purple {
+    border-top-color: rgb(96, 92, 168);;
+}
+
+.box.box-black {
+    border-top-color: #1f1c1c;;
+}
