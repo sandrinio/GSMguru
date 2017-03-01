@@ -6,9 +6,11 @@ var mongoose       = require("mongoose"),
     flash          = require("connect-flash"),
     session        = require("express-session");
 
-var landingRoutes = require('./routes/landing.js')
+var landingRoutes = require('./routes/landing.js'),
+    androidRoutes = require('./routes/android');
 
 app.use(landingRoutes);
+app.use(androidRoutes);
 
 app.use(session({
   secret: 'keyboard cat',
