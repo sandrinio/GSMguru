@@ -33,10 +33,10 @@
             <ul class="sidebar-menu">
                 <li class="header">Navigation Bar</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="#"><i class="fa fa-home" id="sidebar-icon" aria-hidden="true"></i> <span>საწყისი გვერდი</span></a></li>
+                <li><a href="/"><i class="fa fa-home" id="sidebar-icon" aria-hidden="true"></i> <span>საწყისი გვერდი</span></a></li>
                 <li><a href="#"><i class="fa fa-newspaper-o" id="sidebar-icon-news" aria-hidden="true"></i><span>სიახლეები</span></a></li>
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-android" id="sidebar-icon" aria-hidden="true"></i> <span>Android</span>
+                <li class="treeview active">
+                    <a href="/smartphone/android"><i class="fa fa-android" id="sidebar-icon" aria-hidden="true"></i> <span>Android</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i></span>
                     </a>
@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="my-info-box">
+                    <div class="my-info-box active-filter">
                         <span class="my-info-box-icon bg-green-gradient"><i class="fa fa-android"></i></span>
                         <div class="info-box-content">
                             <span class="my-info-box-text">ანდროიდი</span>
@@ -130,51 +130,18 @@
             <div class="row">
                 <!--Blog feed-->
                 <div class="col-md-8">
-                    <div class="box box-purple">
+                    <div class="box box-green">
                         <div class="box-header with-border">
-                            <h3 class="box-title">სიახლეები</h3>
+                            <h3 class="box-title text-center">აირჩიეთ ბრენდი</h3>
                         </div>
                         <div class="box-body">
-                            <ul class="products-list product-list-in-box">
-                                <% var x = 5 %>
-                                <% for(i = 0; i < x; i++) { %>
-                                <li class="item">
-                                    <div class="blog-image">
-                                        <img src="../dist/static_images/placeholder.jpg" alt="">
-                                    </div>
-                                    <div class="blog-info">
-                                        <a href="#" class="blog-title">ახალი ამბავი</a>
-                                        <span class="blog-description">
-                                            Suspendisse sapien ante, auctor congue maximus vel, fermentum nec eros. Maecenas
-                                            at tellus non justo consequat suscipit. Nulla cursus est vel nibh vestibulum, rhoncus
-                                            Praesent maximus in velit ac congue. Morbi non dictum
-                                        </span>
-                                    </div>
-                                    <a href="#" class="greenBtn">მეტი</a>
-                                </li>
-                                <% } %>
-                            </ul>
+                            
+                        <div class="devices-tab">
+                            
+                        </div>
+                            
                             <div class="box-footer text-center">
-                                <!--             PAGINATION             -->
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav><!--PAGINATION END-->
+                              
                             </div>
                         </div>
                     </div>
@@ -183,9 +150,9 @@
 
                 <!--Sidebar-->
                 <div class="col-md-4">
-                    <div class="box box-purple">
+                    <div class="box box-green">
                         <div class="box-header with-border">
-                            <p class="box-title">აუცილებლად უნდა ვიცოდეთ<p>
+                            <p class="box-title">ახალი ინსტრუქციები<p>
                         </div>
                         <div class="box-body">
                             <ul class="products-list product-list-in-box">
@@ -196,7 +163,7 @@
                                         <img src="/dist/static_images/default-50x50.gif">
                                     </div>
                                     <div class="product-info">
-                                        <a href="#" class="product-title">დავრეგისტრირდეთ Play Market-ზე</a>
+                                        <a href="#" class="newb-title">დავრეგისტრირდეთ Play Market-ზე</a>
                                         <span class="product-description">
                                             თავად ტკივილი არავის უყვარს, არავინ ეძებს მას და არავის სურს იგი, უბრალოდ იმიტომ, რომ ის ტკივილია...
                                         </span>
@@ -205,9 +172,9 @@
                                 <% } %>
                             </ul>
                         </div>
-
                     </div>
-                    <div class="box box-purple">
+                    
+                    <div class="box box-green">
                         <div class="box-header with-border">
                             <p class="box-title">TOP 5 Apps</p>
                         </div>

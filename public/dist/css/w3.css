@@ -247,10 +247,10 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w3-animate-top{position:relative;-webkit-animation:animatetop 0.4s;animation:animatetop 0.4s}
 @-webkit-keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
 @keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
-.w3-animate-left{position:relative;-webkit-animation:animateleft 0.4s;animation:animateleft 0.4s}
+.w3-animate-left{position:relative;-webkit-animation:animateleft 4s;animation:animateleft 4s}
 @-webkit-keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
 @keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
-.w3-animate-right{position:relative;-webkit-animation:animateright 0.4s;animation:animateright 0.4s}
+.w3-animate-right{position:relative;-webkit-animation:animateright 2s;animation:animateright 2s}
 @-webkit-keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
 @keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
 .w3-animate-bottom{position:relative;-webkit-animation:animatebottom 0.4s;animation:animatebottom 0.4s}

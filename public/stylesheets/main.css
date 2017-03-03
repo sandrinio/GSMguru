@@ -1,3 +1,10 @@
+body {
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 100px;
+}
+
+
+
 .div-center {
     margin: 0 auto;
     width: 726px;
@@ -20,11 +27,14 @@
     width: 90px;
     text-align: center;
     font-size: 45px;
-    line-height: 90px;
+    line-height: 82px;
     background: rgba(0, 0, 0, 0.2);
 }
-.my-info-box-icon:hover {
 
+.my-info-box:hover {
+  transition-duration: .50s;
+  color: black; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .my-info-box {
@@ -38,6 +48,7 @@
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     margin-bottom: 15px;
+    text-decoration: none;
 }
 
 .my-info-box-number {
@@ -64,6 +75,8 @@
 }
 .main-info-header {
     margin-bottom: 40px;
+    text-shadow: 1px 2px 3px gray;
+    font-weight: bold;
 }
 
 #loadLater {
@@ -121,11 +134,15 @@
 }
 
 .box.box-purple {
-    border-top-color: rgb(96, 92, 168);;
+    border-top-color: rgb(96, 92, 168);
 }
 
 .box.box-black {
-    border-top-color: #1f1c1c;;
+    border-top-color: #1f1c1c;
+}
+
+.box.box-green {
+   border-top-color: #00a65a;
 }
 
 #sidebar-icon{
@@ -151,6 +168,7 @@
     font-weight: 900;
     text-decoration: none;
     font-size: 18px;
+    color: #3c8dbc;
 }
 .greenBtn {
     border-radius: 0;
@@ -194,6 +212,7 @@
 .app-title {
     margin-left: 35px;
     margin-top: -4px;
+    color: #3c8dbc;
 }
 
 .app-item {
@@ -205,4 +224,31 @@
     display: block;
 }
 
+.newb-title {
+    color: #3c8dbc;
+    font-weight: 600;
+}
 
+.active-filter {
+    border-bottom: solid 3px #00a65a;
+}
+
+/* ================= /SMARTPHONE/ANDROID PAGE ================= */
+
+.test-height {
+    height: 500px;
+}
+
+.devices-tab {
+    text-align: center;
+    border-top: 0;
+    float: left;
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.devices-tab .tab {
+    float: left;
+    width: 25%;
+}
