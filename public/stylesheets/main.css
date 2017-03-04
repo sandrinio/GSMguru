@@ -168,7 +168,7 @@ body {
     font-weight: 900;
     text-decoration: none;
     font-size: 18px;
-    color: #3c8dbc;
+    color: #167ac6;
 }
 .greenBtn {
     border-radius: 0;
@@ -212,7 +212,7 @@ body {
 .app-title {
     margin-left: 35px;
     margin-top: -4px;
-    color: #3c8dbc;
+    color: #167ac6;
 }
 
 .app-item {
@@ -224,9 +224,23 @@ body {
     display: block;
 }
 
+#font-size {
+    font-size: 10px;
+}
+
 .newb-title {
-    color: #3c8dbc;
+    color: #167ac6;
     font-weight: 600;
+    font-size: 14px;
+}
+
+.newb-desc {
+    display: block;
+    color: #999;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 12px;
 }
 
 .active-filter {
@@ -278,17 +292,36 @@ body {
     color: #333;
 }
 
-.white-boxes {
+.video-box {
+    display: inline-block;
+    vertical-align: top;
+    width: 196px;
+    height: 150px;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.video-box-title {
+    font-size: 13px;
+    margin-bottom: 1px;
+    max-width: 196px;
+    margin-top: 5px;
     background-color: #fff;
-    padding: 10px;
-    display: table;
-    float: left;
-    border-radius: 5px;
-    margin: 20px 10px 20px 10px;
-    width: 120px;
-    height: 100px;
-    text-align: center;
-    font: 700 16px Arial,sans-serif;
-    color: #333;
-    box-shadow: 0 1px 3px rgba(0,0,0,.5);
+    display: block;
+    line-height: 1.3em;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.video-box-title a {
+    color: #167ac6;
+    font-weight: 600;
+}
+
+.video-box-desc {
+    font-size: 10px;
 }
