@@ -234,9 +234,9 @@ body {
 }
 
 /* ================= /SMARTPHONE/ANDROID PAGE ================= */
-
-.test-height {
-    height: 500px;
+.tab {
+    display: inline-block;
+    float: left;
 }
 
 .devices-tab {
@@ -248,7 +248,47 @@ body {
     border-top-right-radius: 0;
 }
 
-.devices-tab .tab {
+.grey-box {
+    background-color: #f2f2f2;
+    border: solid 1px #cdcdcd;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.devices-tab .tab.active .tab-header {
+    background-color: #f2f2f2;
+    border-bottom: none;
+    border-bottom-width: initial;
+    border-bottom-style: none;
+    border-bottom-color: initial;
+}
+
+.devices-tab .tab .tab-header {
+    border-right: 1px solid #cdcdcd;
+    border-top: 1px solid #cdcdcd;
+    border-bottom: 1px solid #cdcdcd;
+    padding: 20px 16px;
+    text-align: left;
+    background-color: #fff;
+}
+
+.devices-tab h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.white-boxes {
+    background-color: #fff;
+    padding: 10px;
+    display: table;
     float: left;
-    width: 25%;
+    border-radius: 5px;
+    margin: 20px 10px 20px 10px;
+    width: 120px;
+    height: 100px;
+    text-align: center;
+    font: 700 16px Arial,sans-serif;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
