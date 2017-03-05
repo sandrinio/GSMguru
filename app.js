@@ -9,6 +9,14 @@ var mongoose       = require("mongoose"),
     session        = require("express-session"),
 
     User           = require("./models/user");
+    
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(bodyParser.json());
+    app.set("view engine", "ejs");
+    app.use(express.static(__dirname + "/public"));
+    app.use(flash());
+    app.use(passport.initialize());
+    app.use(passport.session());
 
 
 var landingRoutes = require('./routes/landing.js'),
@@ -26,13 +34,8 @@ app.use(session({
 }));
 
 
-app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(express.static(__dirname + "/public"));
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
+
+
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());

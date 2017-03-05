@@ -1,12 +1,21 @@
 $(document).ready(function() {
+  
 
-  // setTimeout(function() {
-  //   $("#loadLater").show()
-  // }, 1500);
-  //
-  // setTimeout(function () {
-  //   $('#showLater2').show()
-  // }, 2000);
+  
+
+  $('#billboardBtn').on('click', function () {
+    $.ajax({
+      type: 'POST',
+      url: '/news/uploadBanner',
+      success: function(response){
+        $('#responseText').text(response);
+        console.log(response);
+      },
+      error: function(){
+        $('#responseText').text("failed")
+      }
+    });
+  });
 
 
 });

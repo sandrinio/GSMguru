@@ -77,10 +77,58 @@
         <section class="content">
 
             <!-- =============================================  Your Page Content Here  ============================================== -->
-
-
-
-
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                            <!--new blog-->
+                            <div class="col-md-8">
+                                <div class="box box-green">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title text-center">ახალი ბლოგის დამატება</h3>
+                                    </div>
+                                    <div class="box-body">
+                                            <div>
+                                            <div class="form-group">
+                                                    <label for="inputBilboard"  class="col-sm-2 control-label">ბილბორდი</label>
+                                                <div class="col-sm-10">
+                                                    <input enctype="multipart/form-data" id="billboardImg" class="form-control" id="inputBilboard" placeholder="Title">
+                                                </div>
+                                            </div>
+                                                
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <button type="submit" id="billboardBtn" class="btn btn-default pull-right">ატვირთვა</button>
+                                                </div>
+                                            </div>
+                                                  
+                
+                                        <span id="responseText"></span>
+                                        </div>
+                                        <form action="/news/new/blogPost" method="POST">
+                                            
+                                             <div class="form-group">
+                                                    <label for="inputTitle" class="col-sm-2 control-label">სათაური</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="blogPost[title]" class="form-control" id="inputTitle" placeholder="Title">
+                                                </div>
+                                                    <textarea class="form-control" name="blogPost[content]" rows="10"></textarea>
+                                                
+                                                <script>
+                                                    CKEDITOR.replace('blogPost[content]');
+                                                </script>
+                                                
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-2 col-sm-10">
+                                                        <button type="submit" class="btn btn-primary pull-right">დაპოსტვა</button>
+                                                    </div>
+                                                </div>
+                                             </div>
+                                            
+                                        </form>    
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
 
 
 
