@@ -9,20 +9,19 @@ router.get('/landing/login', function (req, res) {
   res.render('auth/login');
 });
 
-router.get('/landing/register', middleware.isLoggedIn, function (req, res) {
+router.get('/landing/register', function (req, res) {
   res.render('auth/register')
 });
 
 router.post('/landing/register', function (req, res) {
   if(req.body.password === req.body.pass2) {
-    User.register(req.body.user, req.body.password, function (err, user) {
+    var userInfo = req.body.user;
+    userInfo.pic = 'user-icon.png';
+    User.register(userInfo, req.body.password, function (err, user) {
       if(err){
         res.send(err)
       }else{
-        passport.authenticate("local")(req, res, function () {
-          req.flash("success", "User Created");
-          res.redirect("back");
-        });
+        res.redirect('/landing/login')
       }
     })
   }else{
@@ -35,6 +34,12 @@ router.post("/landing/login", passport.authenticate("local", {
   failureRedirect: "/landing/login"
 }), function (req, res) {
   req.flash("success", 'Welcome');
+  res.redirect("/");
+});
+
+router.get("/landing/logout", function (req, res) {
+  req.logout();
+  req.flash("success", "Logged Out");
   res.redirect("/");
 });
 

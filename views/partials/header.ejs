@@ -53,5 +53,88 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
+<body class="hold-transition skin-purple sidebar-collapse sidebar-mini">
+<div class="wrapper">
 
+    <!-- Main Header -->
+    <header class="main-header">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>G</b>uru</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>GSM </b>Guru</span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <% if(currentUser){ %>
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <img src="/uploads/userPics/<%= currentUser.pic %>" class="user-image">
+                            <span class="hidden-xs"><%= currentUser.fullname %></span>
+
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
+                                    <img src="/uploads/userPics/<%= currentUser.pic %>" class="img-circle">
+                                    <p class="text-center"><%= currentUser.fullname %>
+
+                                    </p>
+                                </li>
+                                <li class="user-body">
+                                </li>
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">პროფილი</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="/landing/logout" class="btn btn-default btn-flat">გამოსვლა</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Navbar Right Menu -->
+            <% }else { %>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="hidden-xs">Login</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <form action="/landing/login" method="POST">
+                                <li class="inputs-container">
+                                    <input name="username" type="email" placeholder="მეილი">
+                                    <input name="password" type="Password" placeholder="პაროლი">
+                                </li>
+                                <li>
+                                    <button type="submit">შესვლა</button>
+                                </li>
+                            </form>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown user user-menu">
+                        <a href="/landing/register">
+                            <span class="hidden-xs">რეგისტრაცია</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <% } %>
+        </nav>
+    </header>
 
