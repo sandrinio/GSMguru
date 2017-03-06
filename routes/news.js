@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var multer  = require('multer');
 var path = require('path');
+var middleware = require('../middleware')
 var News = require('../models/news'),
     fs             = require('fs'),
     formidable     = require('formidable'),
@@ -25,13 +26,10 @@ var upload = multer({ storage: storage });
 
 
 
-router.get('/news/new', function (req, res) {
+router.get('/news/new', middleware.isLoggedIn, function (req, res) {
   res.render('news/new');
 });
 
-router.get('/news/test', function (req, res) {
-  res.render('news/test')
-});
 
 router.get('/news/:id', function (req, res) {
   res.render('news/show')
@@ -106,7 +104,7 @@ router.post('/upload_photos', function (req, res){
 });
 
 
-router.post("/news/uploads/blogUploads", upload.single('upload'), function (req, res){
+router.post("/news/uploads/blogUploads", middleware.isLoggedIn, upload.single('upload'), function (req, res){
   var domein = 'https://gsm-guru-sandrinio.c9users.io';
   var fileLink = req.file.path;
   var slisedLink = fileLink.slice(6);
@@ -114,8 +112,20 @@ router.post("/news/uploads/blogUploads", upload.single('upload'), function (req,
   res.send(domein + slisedLink);
 });
 
-router.post('/news/new/blogPost', function(req, res){
-
+router.post('/news/new/blogPost', middleware.isLoggedIn, function(req, res){
+  var postContent = req.body.blogPost;
+  postContent.author = {
+                    fullname: req.user.fullname,
+                    pic: "",
+                    id: req.user._id
+                       };
+  News.create(postContent, function (err, createdPost) {
+    if(err){
+        return console.log(err)
+       }
+       console.log(createdPost);
+       res.redirect("/");
+  });
 });
 
 

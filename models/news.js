@@ -2,10 +2,10 @@ var mongoose = require("mongoose");
 
 var postsSchema = new mongoose.Schema({
   
-  billboard: {type: String, required: true},
-  title:     {type: String, required: true},
-  tag:       {type: String, required: true},
-  content:   {type: String, required: true},
+  billboard: String, 
+  title:     String,
+  tag:       String, 
+  content:   String,
 
   author: {
     id: {

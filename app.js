@@ -10,47 +10,54 @@ var mongoose       = require("mongoose"),
 
     User           = require("./models/user");
     
+var landingRoutes = require('./routes/landing.js'),
+    androidRoutes = require('./routes/android'),
+    newsRoutes    = require('./routes/news'),
+    authRoutes    = require('./routes/auth');
+    
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+    }));
+    
+    app.use(passport.initialize());
+    app.use(passport.session());
+    passport.use(new LocalStrategy(User.authenticate()));
+    passport.serializeUser(User.serializeUser());
+    passport.deserializeUser(User.deserializeUser());    
+    
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.json());
     app.set("view engine", "ejs");
     app.use(express.static(__dirname + "/public"));
     app.use(flash());
-    app.use(passport.initialize());
-    app.use(passport.session());
-    passport.use(new LocalStrategy(User.authenticate()));
-    passport.serializeUser(User.serializeUser());
-    passport.deserializeUser(User.deserializeUser());
-
-
-
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false
-}));
-
-
-var landingRoutes = require('./routes/landing.js'),
-  androidRoutes = require('./routes/android'),
-  newsRoutes    = require('./routes/news'),
-  authRoutes    = require('./routes/auth');
-
-app.use(landingRoutes);
-app.use(androidRoutes);
-app.use(newsRoutes);
-app.use(authRoutes);
-
-app.use(function (req, res, next) {
-  res.locals.error = req.flash("error");
-  res.locals.success = req.flash("success");
-  next();
-});
-
+  
+    app.use(function (req, res, next) {
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
+  });  
+  
+    app.use(landingRoutes);
+    app.use(androidRoutes);
+    app.use(newsRoutes);
+    app.use(authRoutes);
 
 mongoose.Promise = global.Promise;
 
 mongoose.connect("mongodb://sandrinio:kukuruku321@ds157839.mlab.com:57839/gsm-guru");
 // mongoose.connect("mongodb://localhost/gsm_guru");
+
+
+
+
+
+
+
+
+
+  
 
 
 

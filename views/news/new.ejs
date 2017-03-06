@@ -113,11 +113,20 @@
                             </div>
                             <form action="/news/new/blogPost" method="POST">
                                 <div class="form-group">
+                                    <label for="billboard" class="col-sm-2 control-label">Billboard</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="blogPost[billboard]"
+                                               class="form-control" id="billboard" placeholder="Image Link">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="inputTitle" class="col-sm-2 control-label">სათაური</label>
                                     <div class="col-sm-10">
                                         <input type="text" name="blogPost[title]"
                                                class="form-control" id="inputTitle" placeholder="Title">
                                     </div>
+                                </div>
+                                <div class="form-group">
                                     <select id="inputTag" name="blogPost[inputTag]">
                                         <option>Android</option>
                                         <option>iOS</option>
@@ -126,6 +135,7 @@
                                         <option>Innovation</option>
                                         <option>Other</option>
                                     </select>
+                                </div>
                                     <div>
                                         <textarea class="form-control" name="blogPost[content]" rows="10"></textarea>
 
@@ -139,7 +149,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                
 
                             </form>
 

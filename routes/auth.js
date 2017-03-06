@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require("passport");
+var middleware = require("../middleware");
 var User = require('../models/user');
 
 
@@ -8,16 +9,8 @@ router.get('/landing/login', function (req, res) {
   res.render('auth/login');
 });
 
-router.get('/landing/register', function (req, res) {
+router.get('/landing/register', middleware.isLoggedIn, function (req, res) {
   res.render('auth/register')
-});
-
-router.post("/landing/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/landing/login"
-}), function (req, res) {
-  req.flash("success", 'Welcome');
-  res.redirect("/");
 });
 
 router.post('/landing/register', function (req, res) {
@@ -36,6 +29,16 @@ router.post('/landing/register', function (req, res) {
     res.send('Password Typo')
   }
 });
+
+router.post("/landing/login", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/landing/login"
+}), function (req, res) {
+  req.flash("success", 'Welcome');
+  res.redirect("/");
+});
+
+
 
 
 module.exports = router;
