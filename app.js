@@ -17,15 +17,11 @@ var mongoose       = require("mongoose"),
     app.use(flash());
     app.use(passport.initialize());
     app.use(passport.session());
+    passport.use(new LocalStrategy(User.authenticate()));
+    passport.serializeUser(User.serializeUser());
+    passport.deserializeUser(User.deserializeUser());
 
 
-var landingRoutes = require('./routes/landing.js'),
-    androidRoutes = require('./routes/android'),
-    newsRoutes    = require('./routes/news');
-
-app.use(landingRoutes);
-app.use(androidRoutes);
-app.use(newsRoutes);
 
 app.use(session({
   secret: 'keyboard cat',
@@ -34,12 +30,15 @@ app.use(session({
 }));
 
 
+var landingRoutes = require('./routes/landing.js'),
+  androidRoutes = require('./routes/android'),
+  newsRoutes    = require('./routes/news'),
+  authRoutes    = require('./routes/auth');
 
-
-
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+app.use(landingRoutes);
+app.use(androidRoutes);
+app.use(newsRoutes);
+app.use(authRoutes);
 
 app.use(function (req, res, next) {
   res.locals.error = req.flash("error");

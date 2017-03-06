@@ -325,3 +325,36 @@ body {
 .video-box-desc {
     font-size: 10px;
 }
+
+/* ==================== AUTH CSS ==================== */
+
+.login-box-body {
+    background: #fff;
+    padding: 20px;
+    border-top: 0;
+    color: #666;
+}
+.login-box{
+    width: 360px;
+    margin: 7% auto;
+}
+
+.full-body {
+    width: 100%;
+    height: 100%;
+    background: #d2d6de;
+    position: absolute;
+}
+
+.has-error {
+    border-color: #dd4b39;
+    box-shadow: none;
+}
+
+/* ==================== END ==================== */
+
+/* ==================== NEWS CSS ==================== */
+
+
+
+/* ==================== END ==================== */
