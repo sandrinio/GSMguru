@@ -31,7 +31,7 @@ router.get('/news/new', middleware.isLoggedIn, function (req, res) {
 });
 
 
-router.get('/news/:id', function (req, res) {
+router.get('/hotNews/:id', function (req, res) {
   res.render('news/show')
 });
 

@@ -127,22 +127,24 @@
                         </div>
                         <div class="box-body">
                             <ul class="products-list product-list-in-box">
-                                
-                                <% data.hot.forEach(function( hotNews ) { %>
+                                <% var x = 5 %>
+                                <% for(i = 0; i < x; i++) { %>
                                 <li class="item">
                                     <div class="blog-image">
                                         <img src="./dist/static_images/placeholder.jpg" alt="">
                                     </div>
                                     <div class="blog-info">
-                                        <a href="/hotNews/<%= hotNews._id %>" class="blog-title"><%= hotNews.title %></a>
+                                        <a href="#" class="blog-title">ახალი ამბავი</a>
                                         <span class="blog-description">
-                                            <%- hotNews.content.slice(0, 200); %>...
-                                            <span class="app-date"><em id="font-size">Date: <%= hotNews.date.toDateString() %></em></span>
+                                            Suspendisse sapien ante, auctor congue maximus vel, fermentum nec eros. Maecenas
+                                            at tellus non justo consequat suscipit. Nulla cursus est vel nibh vestibulum, rhoncus
+                                            Praesent maximus in velit ac congue. Morbi non dictum
+                                            <span class="app-date"><em id="font-size">Date: 27.11.2017</em></span>
                                         </span>
                                     </div>
-                                    <a href="/hotNews/<% hotNews._id %>" class="greenBtn">მეტი</a>
+                                    <a href="#" class="greenBtn">მეტი</a>
                                 </li>
-                                <% }) %>
+                                <% } %>
                             </ul>
                             <div class="box-footer text-center">
                           <!--             PAGINATION             -->
