@@ -34,7 +34,7 @@ router.post("/landing/login", passport.authenticate("local", {
   failureRedirect: "/landing/login"
 }), function (req, res) {
   req.flash("success", 'Welcome');
-  res.redirect("/");
+  res.redirect("back");
 });
 
 router.get("/landing/logout", function (req, res) {

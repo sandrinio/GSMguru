@@ -93,15 +93,15 @@ $(document).ready(function() {
     uploadFiles(formData);
   });
 
-  var hidden = false;
+  var hidden = true;
 
   $('#collapse-upload-container').on('click', function () {
 
     if(hidden == false){
-      $('#collapsable').hide();
+      $('#collapsable').hide(500);
       hidden = true;
     }else{
-      $('#collapsable').show();
+      $('#collapsable').show(500);
       hidden = false;
     }
   });

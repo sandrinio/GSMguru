@@ -52,24 +52,20 @@
         <section class="content">
 
             <!-- =============================================  Your Page Content Here  ============================================== -->
-<div class="row">
-        <div class="col-md-9">
-            <div class="box box-purple">
-                        <div class="box-header with-border">
-                            <h3 class="box-title text-center"></h3>
-            
-                            </div>
-                        </div>
-                        <div class="box-body">
-                            
-                            </div>
-                    </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="box box-purple">
+                    <div class="box-header with-border">
+                        <h3 class="box-title text-center"><%= post.title %></h3>
+                     </div>
                 </div>
-        </div>
+                   <div class="my-box-body">
+                       <div >
+                        <%- post.content %>
+                       </div>
+                   </div>
 
-
-
-
+            </div>
 
             <!--Sidebar-->
             <div class="col-md-3">

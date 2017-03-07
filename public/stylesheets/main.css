@@ -373,7 +373,17 @@ body {
 /* ==================== END ==================== */
 
 /* ==================== NEWS CSS ==================== */
+#collapsable{
+    display: none;
+}
 
+.my-box-body {
+    border-radius: 7px;
+    padding:15px;
+    background-color: #fbfbfb;
+    box-shadow: 0 2px 3px #777;
+
+}
 
 
 /* ==================== END ==================== */

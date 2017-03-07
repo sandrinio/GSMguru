@@ -32,7 +32,13 @@ router.get('/news/new', middleware.isLoggedIn, function (req, res) {
 
 
 router.get('/hotNews/:id', function (req, res) {
-  res.render('news/show')
+  News.findById(req.params.id, function (err, post) {
+    if(err){
+      console.log(err)
+    }else{
+      res.render('news/show', {post: post})
+    }
+  });
 });
 
 
