@@ -11,11 +11,12 @@ var mongoose       = require("mongoose"),
 
     User           = require("./models/user");
     
-var landingRoutes = require('./routes/landing.js'),
-    androidRoutes = require('./routes/android'),
-    newsRoutes    = require('./routes/news'),
-    authRoutes    = require('./routes/auth'),
-    adminRoutes   = require('./routes/admin');
+var landingRoutes     = require('./routes/landing.js'),
+    androidRoutes     = require('./routes/android'),
+    newsRoutes        = require('./routes/news'),
+    authRoutes        = require('./routes/auth'),
+    adminRoutes       = require('./routes/admin'),
+    applicationRoutes = require('./routes/applications');
     
 app.use(session({
     secret: 'keyboard cat',
@@ -48,6 +49,7 @@ app.use(session({
     app.use(newsRoutes);
     app.use(authRoutes);
     app.use(adminRoutes);
+    app.use(applicationRoutes);
 
 mongoose.Promise = global.Promise;
 

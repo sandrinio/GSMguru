@@ -6,7 +6,7 @@ $(document).ready(function() {
    */
   function uploadFiles(formData) {
     $.ajax({
-      url: '/upload_photos',
+      url: '/app/upload',
       method: 'post',
       data: formData,
       processData: false,
@@ -66,7 +66,7 @@ $(document).ready(function() {
   });
 
 // On form submit, handle the file uploads.
-  $('#upload-photos').on('submit', function (event) {
+  $('#upload-app').on('submit', function (event) {
     event.preventDefault();
 
     // Get the files from input, create new FormData.
@@ -92,17 +92,5 @@ $(document).ready(function() {
     // Note: We are only appending the file inputs to the FormData.
     uploadFiles(formData);
   });
-
-  var hidden = true;
-
-  $('#collapse-upload-container').on('click', function () {
-
-    if(hidden == false){
-      $('#collapsable').hide(500);
-      hidden = true;
-    }else{
-      $('#collapsable').show(500);
-      hidden = false;
-    }
-  });
+  
 });
