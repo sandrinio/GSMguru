@@ -3,16 +3,35 @@ var router = express.Router();
 var News = require("../models/news");
 
 router.get('/', function (req, res) {
-  var data = {};
+
   News.find({}).sort('-date').exec(function (err, newsPosts){
     if(err){
       console.log(err)
     }else{
       //hot news data
-      data.hot = newsPosts;
+      var totalBlogPostsCount = newsPosts.length,
+          pageSize = 10,
+          pageCount = totalBlogPostsCount / pageSize + 1,
+          currentPage = 1,
+          blogPostsArray = [],
+          blogPostsList = {};
+
+      while (newsPosts.length > 0) {
+        blogPostsArray.push(newsPosts.splice(0, pageSize));
     }
-    res.render('landing', {data: data})
-  });
+      if (typeof req.query.page !== 'undefined') {
+        currentPage = + req.query.page;
+      }
+      blogPostsList.hot = blogPostsArray[ + currentPage - 1];
+      res.render('landing', {
+                              data: blogPostsList,
+                              pageSize: pageSize,
+                              totalBlogPostsCount: totalBlogPostsCount,
+                              pageCount: pageCount,
+                              currentPage: currentPage
+                             });
+  }
+});
 });
 
 

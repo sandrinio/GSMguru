@@ -41,7 +41,9 @@ router.get('/hotNews/:id', function (req, res) {
   });
 });
 
-
+router.get('/news/:id/edit', function (req, res) {
+  res.render('news/edit')
+});
 
 router.post('/upload_photos', function (req, res){
   var photos = [],
@@ -131,6 +133,19 @@ router.post('/news/new/blogPost', middleware.isLoggedIn, function(req, res){
        }
        console.log(createdPost);
        res.redirect("/");
+  });
+});
+
+
+
+router.delete('/news/:id', function (req, res) {
+  News.findByIdAndRemove(req.params.id, function (err, blogPost) {
+    if(err){
+      console.log(err)
+    }else{
+      req.flash("success", blogPost.title + " " + "has been removed")
+      res.redirect("/");
+    }
   });
 });
 

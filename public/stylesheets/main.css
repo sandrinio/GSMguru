@@ -79,6 +79,10 @@ body {
     font-weight: bold;
 }
 
+#edit-form {
+    display: inline-block;
+}
+
 #loadLater {
     color: #b40000;
 }
@@ -165,9 +169,9 @@ body {
 }
 
 .blog-title {
-    font-weight: 900;
+    font-weight: 600;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     color: #167ac6;
 }
 
@@ -199,7 +203,6 @@ body {
     -ms-user-select: none;
     user-select: none;
     text-transform: none;
-    float: right;
 }
 .greenBtn:hover {
     text-decoration: none;
@@ -385,5 +388,69 @@ body {
 
 }
 
+.btns-container {
+    float: right;
+}
+
+.news-item {
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    float: left;
+    clear: both;
+    position: relative;
+    background: #fff;
+    padding: 0 10px;
+    width: 100%;
+    min-width: 541px;
+    height: 186px;
+}
+
+.news-item>a {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+.news-image-container {
+    width: 298px;
+    margin: 0 10px -30px -10px;
+    position: relative;
+}
+
+.news-image-container img {
+    width: 100%;
+}
+
+.news-item img {
+    margin: -3px 0 0 0;
+    max-width: 100%;
+}
+
+.meta-line {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #c0c0c0;
+    font-size: 10px;
+    padding: 0 0 6px;
+    text-align: right;
+    position: absolute;
+    bottom: -4px;
+    right: 5px;
+
+    margin-bottom: 0;
+    z-index: 3;
+    float: right;
+    width: auto;
+    display: table;
+}
+.news-title p {
+    margin-top: 20px;
+    font-size: 12px;
+}
+.news-title h4:hover {
+    color: rebeccapurple;
+    text-shadow: 0 2px 3px rgba(255, 255, 255, 0.4);
+}
 
 /* ==================== END ==================== */

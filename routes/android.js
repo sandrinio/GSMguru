@@ -8,5 +8,4 @@ router.get('/smartphones/android', function (req, res) {
 
 
 
-
 module.exports = router;

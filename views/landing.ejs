@@ -122,45 +122,55 @@
                             <h3 class="box-title">სიახლეები</h3>
                         </div>
                         <div class="box-body">
-                            <ul class="products-list product-list-in-box">
-                                
-                                <% data.hot.forEach(function( hotNews ) { %>
-                                <li class="item">
-                                    <div class="blog-image">
-                                        <img src="./dist/static_images/placeholder.jpg" alt="">
+                            <% data.hot.forEach(function( hotNews ) { %>
+                                <div class="news-item">
+                                    <div class="news-image-container pull-left">
+                                        <img src="<%= hotNews.billboard %>">
                                     </div>
-                                    <div class="blog-info">
-                                        <a href="/hotNews/<%= hotNews._id %>" class="blog-title"><%= hotNews.title %></a>
-                                        <span class="blog-description">
-                                            <%- hotNews.content.slice(0, 200); %>...
-                                            <span class="app-date"><em id="font-size">Date: <%= hotNews.date.toDateString() %></em></span>
-                                        </span>
+                                    <div class="news-title">
+                                        <a href="/hotNews/<%= hotNews._id %>"><h4><%= hotNews.title %></h4></a>
+                                        <p> <%- hotNews.content.slice(0, 200); %>... </p>
                                     </div>
-                                    <a href="/hotNews/<% hotNews._id %>" class="greenBtn">მეტი</a>
-                                </li>
-                                <% }) %>
-                            </ul>
+                                    <div class="meta-line">
+                                        <span><i class="fa fa-calendar" aria-hidden="true"> <%= hotNews.date.toDateString() %></i></span>
+                                        <form action="/news/<%= hotNews._id %>?_method=DELETE" method="POST" id="edit-form">
+                                            <button type="submit" class="label label-danger">Delete</button>
+                                            <a href="/news/edit" class="label label-warning">edit</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            <% }) %>
+
                             <div class="box-footer text-center">
-                          <!--             PAGINATION             -->
                                 <nav aria-label="Page navigation">
-                                    <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav><!--PAGINATION END-->
+                                <% if (pageCount > 1) { %>
+                                <ul class="pagination">
+                                    <% if (currentPage > 1) { %>
+                                    <li><a href="/mainPage/?page=1">&laquo;</a></li>
+                                    <% } %>
+                                    <% var i = 1;
+                                        if (currentPage > 5) {
+                                            i =+ currentPage - 4;
+                                        } %>
+                                    <% if (i !== 1) { %>
+                                    <li class="disabled"><a href="#">...</a></li>
+                                    <% } %>
+                                    <% for (i; i <= pageCount; i++) { %>
+                                    <% if (currentPage == i) { %>
+                                    <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
+                                    <% } else { %>
+                                    <li><a href="/mainPage/?page=<%= i %>"><%= i %></a></li>
+                                    <% } %>
+                                    <% if (i == ( + currentPage + 4)) { %>
+                                    <li class="disabled"><a href="#">...</a></li>
+                                    <% break; } %>
+                                    <% } %>
+                                    <% if (currentPage == pageCount) { %>
+                                    <li><a href="/mainPage/?page=<%= currentPage %>">&raquo;</a></li>
+                                    <% } %>
+                                </ul>
+                                </nav>
+                                <% } %>
                             </div>
                         </div>
                     </div>

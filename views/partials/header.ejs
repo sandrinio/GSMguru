@@ -92,9 +92,11 @@ desired effect
                                 <li class="user-body">
                                 </li>
                                 <li class="user-footer">
+                                    <% if(currentUser.permission === 'admin') { %>
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">პროფილი</a>
+                                        <a href="/admins/admin-panel" class="btn btn-default btn-flat">ადმინ პანელი</a>
                                     </div>
+                                    <% } %>
                                     <div class="pull-right">
                                         <a href="/landing/logout" class="btn btn-default btn-flat">გამოსვლა</a>
                                     </div>

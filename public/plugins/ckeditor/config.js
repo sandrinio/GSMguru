@@ -23,7 +23,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
 		{ name: 'styles' },
 		{ name: 'colors' },
-    { name: 'insert', items: ['Image', 'Youtube']}
+    // { name: 'insert', items: ['Image', 'Youtube']}
 	];
 
 
@@ -38,6 +38,6 @@ CKEDITOR.editorConfig = function( config ) {
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	config.extraPlugins = 'uploadimage';
 	config.extraPlugins = 'lineheight';
-  config.extraPlugins = 'youtube_2.0.9/youtube';
+	config.extraPlugins = 'youtube';
 	config.uploadUrl = '/news/uploads/blogUploads';
 };

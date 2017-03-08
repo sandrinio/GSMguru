@@ -7,13 +7,15 @@ var mongoose       = require("mongoose"),
     flash          = require("connect-flash"),
     LocalStrategy  = require("passport-local"),
     session        = require("express-session"),
+    methodOverride = require("method-override"),
 
     User           = require("./models/user");
     
 var landingRoutes = require('./routes/landing.js'),
     androidRoutes = require('./routes/android'),
     newsRoutes    = require('./routes/news'),
-    authRoutes    = require('./routes/auth');
+    authRoutes    = require('./routes/auth'),
+    adminRoutes   = require('./routes/admin');
     
 app.use(session({
     secret: 'keyboard cat',
@@ -32,6 +34,7 @@ app.use(session({
     app.set("view engine", "ejs");
     app.use(express.static(__dirname + "/public"));
     app.use(flash());
+    app.use(methodOverride("_method"));
   
     app.use(function (req, res, next) {
     res.locals.currentUser = req.user;
@@ -44,6 +47,7 @@ app.use(session({
     app.use(androidRoutes);
     app.use(newsRoutes);
     app.use(authRoutes);
+    app.use(adminRoutes);
 
 mongoose.Promise = global.Promise;
 
