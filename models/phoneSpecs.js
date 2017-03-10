@@ -2,6 +2,8 @@ var mongoose = require("mongoose");
 
 var appsSchema = new mongoose.Schema({
 
+  pictures: {},
+
   network: {
             type: String,
             required: true
