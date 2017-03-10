@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var postsSchema = new mongoose.Schema({
+var manualsSchema = new mongoose.Schema({
 
   billboard: {type: String, required: true},
   title: {type: String, required: true},
@@ -23,7 +23,7 @@ var postsSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model("Post", postsSchema);
+module.exports = mongoose.model("Manuals", manualsSchema);
 /**
  * Created by Sandro on 3/5/17.
  */

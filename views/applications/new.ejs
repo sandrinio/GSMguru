@@ -71,7 +71,7 @@
                                         <input id="photos-input" type="file" name="photos[]" multiple="multiple" >
                                     </div>
                                     <input type="hidden" name="csrf_token" value="just_a_text_field" />
-                                    <input class="btn btn-warning" type="submit" name="Photo Uploads" value="Upload Photos" />
+                                    <input class="btn btn-warning" type="submit" name="Photo Uploads" value="Upload File" />
                                 </form>
                                 <!-- Progress Bar -->
                                 <div>
@@ -85,12 +85,12 @@
                                 <!-- Photos Album Container -->
                                 <div id="album"></div>
                             </div>
-                            <form action="/news/new/blogPost" method="POST">
+                            <form action="/app/new" method="POST">
                                 <div class="form-group">
                                     <label for="billboard" class="col-sm-2 control-label">App Icon</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="blogPost[billboard]"
-                                               class="form-control" id="billboard" placeholder="Image Link">
+                                        <input type="text" name="app[icon]"
+                                               class="form-control" id="billboard" placeholder="Icon Link">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -101,31 +101,38 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="versrion" class="col-sm-2 control-label">App Version</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="app[version]"
+                                               class="form-control" id="version" placeholder="ვერსია">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="inputDownload1" class="col-sm-2 control-label">local</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="app[dwLocal]"
+                                        <input type="text" name="downloadLinks[local]"
                                                class="form-control" id="inputDownload1" placeholder="ლოკალური ლინკი">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputDownload2" class="col-sm-2 control-label">App Store</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="app[appStore]"
+                                        <input type="text" name="downloadLinks[appStore]"
                                                class="form-control" id="inputDownload21" placeholder="აითუნსის ლინკი">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputDownload3" class="col-sm-2 control-label">Play Market</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="app[playMarket]"
+                                        <input type="text" name="downloadLinks[playMarket]"
                                                class="form-control" id="inputDownload21" placeholder="პლეი მარკეტის ლინკი">
                                     </div>
                                 </div>
                                     <div>
-                                        <textarea class="form-control" name="blogPost[content]" rows="10"></textarea>
+                                        <textarea class="form-control" name="app[content]" rows="10"></textarea>
 
                                         <script>
-                                          CKEDITOR.replace('app[info]');
+                                          CKEDITOR.replace('app[content]');
                                         </script>
 
                                         <div class="form-group">
@@ -159,4 +166,4 @@
 <!-- /.content-wrapper -->
 
 
-<% include ../partials/footer %>
+<% include ../partials/appsFooter %>

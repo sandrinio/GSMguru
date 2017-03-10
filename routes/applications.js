@@ -17,6 +17,26 @@ router.get('/app/:id', function(req, res){
     res.render('/app/show')
 });
 
+router.post('/app/new', function (req, res) {
+  var applicationData = req.body.app;
+      applicationData.downloadLinks = req.body.downloadLinks;
+      applicationData.author = {
+                              fullname: req.user.fullname,
+                              pic: "",
+                              id: req.user._id
+                               };
+      Apps.create(applicationData, function (err, newApp) {
+        if(err){
+          console.log(err);
+          req.flash('error', err)
+        }else{
+
+          req.flash('success', 'New Application Posted')
+          res.redirect('back');
+        }
+      });
+});
+
 router.post('/app/upload', function(req, res){
     var photos = [],
     form = new formidable.IncomingForm();
@@ -44,7 +64,7 @@ router.post('/app/upload', function(req, res){
     type = fileType(buffer);
 
     // Check the file type, must be either png,jpg or jpeg
-    if (type !== null && (type.ext === 'png' || type.ext === 'jpg' || type.ext === 'jpeg' || type.ext === 'apk')) {
+    if (type !== null) {
       // Assign new file name
       filename = Date.now() + '-' + file.name;
 
@@ -55,7 +75,7 @@ router.post('/app/upload', function(req, res){
       photos.push({
         status: true,
         filename: filename,
-        type: type.ext,
+        //type: type.ext,
         publicPath: '/uploads/apps/' + filename
       });
     } else {

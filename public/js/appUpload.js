@@ -44,13 +44,13 @@ $(document).ready(function() {
     if (data.length > 0) {
       var html = '';
       for (var i=0; i < data.length; i++) {
-        var img = data[i];
+        var app = data[i];
 
-        if (img.status) {
-          console.log(img.publicPath);
-          html += '<p>http://localhost:3000' + img.publicPath + '</p>';
+        if (app.status) {
+          console.log(app.publicPath);
+          html += '<p>http://localhost:3000' + app.publicPath + '</p>';
         } else {
-          html += '<div class="col-xs-6 col-md-4"><a href="#" class="thumbnail">Invalid file type - ' + img.filename  + '</a></div>';
+          html += '<div class="col-xs-6 col-md-4"><a href="#" class="thumbnail">Invalid file type - ' + app.filename  + '</a></div>';
         }
       }
 
@@ -92,5 +92,17 @@ $(document).ready(function() {
     // Note: We are only appending the file inputs to the FormData.
     uploadFiles(formData);
   });
-  
+
+  var hidden = true;
+
+  $('#collapse-upload-container').on('click', function () {
+
+    if(hidden == false){
+      $('#collapsable').hide(500);
+      hidden = true;
+    }else{
+      $('#collapsable').show(500);
+      hidden = false;
+    }
+  });
 });
